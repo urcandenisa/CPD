@@ -37,7 +37,7 @@ void quickSort(int *array, int low, int high){
     
     if(low < high){
         int pi = partition(array, low, high);
-        /*
+        
         #pragma omp parallel sections
         {
             #pragma omp section
@@ -49,12 +49,14 @@ void quickSort(int *array, int low, int high){
                 quickSort(array, pi + 1, high);
             }
         }
-        */
+        
+        /*
         #pragma omp task shared(array) if(high - low > TASK_SIZE)
         quickSort(array, low, pi - 1);
         
         #pragma omp task shared(array) if(high - low > TASK_SIZE)
         quickSort(array, pi + 1, high);
+        */
     }
 }
 

@@ -15,4 +15,5 @@ void merge(int *array, int left, int middle, int right);
 
 /* mergeSort */
 void mergeSort(int *array, int left, int right);
+
 #endif /* MergeSort_h */

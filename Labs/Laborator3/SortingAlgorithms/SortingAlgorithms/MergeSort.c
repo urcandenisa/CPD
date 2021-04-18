@@ -49,6 +49,21 @@ void mergeSort(int *array, int left, int right){
     if(left < right) {
         int middle = left + (right - left)/2;
         
+        #pragma omp parallel sections
+        {
+            #pragma omp section
+            {
+                mergeSort(array, left, middle);
+            }
+            #pragma omp section
+            {
+                mergeSort(array, middle + 1, right);
+            }
+        }
+        
+        merge(array, left, middle, right);
+        
+        /*
         #pragma omp task shared(array) if (ARRAY_MAX_SIZE > TASK_SIZE)
         mergeSort(array, left, middle);
         
@@ -57,5 +72,6 @@ void mergeSort(int *array, int left, int right){
         
         #pragma omp taskwait
         merge(array, left, middle, right);
+        */
     }
 }

@@ -57,24 +57,24 @@ int main(int argc, const char * argv[]) {
     int *copy = copyArray(array);
     int *copy2 = copyArray(array);
     
-    omp_set_num_threads(4);
-    float start_time = omp_get_wtime();
-    #pragma omp parallel
+    //omp_set_num_threads(THREADS);
+    double start_time = omp_get_wtime();
+    //#pragma omp parallel
     {
-        #pragma omp single
+        //#pragma omp single
         {
             quickSort(copy, 0, ARRAY_MAX_SIZE - 1);
         }
     }
     
-    float run_time = omp_get_wtime() - start_time;
+    double run_time = omp_get_wtime() - start_time;
     printf("Quick sort execution time: %f [ms]\n", run_time);
     //print(copy, ARRAY_MAX_SIZE);
     
     start_time = omp_get_wtime();
-    #pragma omp parallel
+    //#pragma omp parallel
     {
-       #pragma omp single
+       //#pragma omp single
        {
            mergeSort(copy2, 0, ARRAY_MAX_SIZE - 1);
        }
@@ -85,9 +85,9 @@ int main(int argc, const char * argv[]) {
     //print(copy2, ARRAY_MAX_SIZE);
     
     start_time = omp_get_wtime();
-    #pragma omp parallel
+    //#pragma omp parallel
     {
-       #pragma omp single
+       //#pragma omp single
        {
            radixSort(array, ARRAY_MAX_SIZE);
        }

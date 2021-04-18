@@ -15,12 +15,19 @@
 #include <omp.h>
 
 #ifndef ARRAY_MAX_SIZE
-#define ARRAY_MAX_SIZE 100000
+#define ARRAY_MAX_SIZE 2000000
 #endif
 
+
+#ifndef THREADS
+#define THREADS 1
+#endif
+
+/*
 #ifndef TASK_SIZE
 #define TASK_SIZE 100000
 #endif
+*/
 
 /* print array */
 void print(int *array, int size);
