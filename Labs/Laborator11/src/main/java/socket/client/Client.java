@@ -16,7 +16,6 @@ public class Client {
     private PrintWriter out;
     private BufferedReader in;
 
-    private List<Topics> subscribedTopics;
     private boolean hasToken;
     private int id;
 
@@ -25,7 +24,6 @@ public class Client {
 
     public Client(int id) {
         this.id = id;
-        this.subscribedTopics = new ArrayList<>();
     }
 
     public void startConnection(String ip, int port) {
@@ -86,13 +84,5 @@ public class Client {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public List<Topics> getSubscribedTopics() {
-        return subscribedTopics;
-    }
-
-    public void setSubscribedTopics(List<Topics> subscribedTopics) {
-        this.subscribedTopics = subscribedTopics;
     }
 }
